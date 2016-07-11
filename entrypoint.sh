@@ -33,4 +33,3 @@ else
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --hostnames "hdfsmaster.marathon.mesos" --script "/opt/hadoop/bin/hdfs" start namenode
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --script "/opt/hadoop/bin/hdfs" start datanode
 fi
-Status 
