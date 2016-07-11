@@ -1,6 +1,10 @@
 FROM alpine:3.3
 
-RUN apt-get install -y openssh-server
+RUN apk-install -y openssh-server
+RUN apk-install -y wget
+RUN apk-install -y tar
+
+#RUN apt-get install -y openssh-server
 
 RUN rm -f /root/.ssh/id_rsa
 RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
