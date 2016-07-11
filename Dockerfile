@@ -41,3 +41,9 @@ RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /o
 
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD slaves /opt/hadoop/etc/hadoop
+
+EXPOSE 22 8020 
+
+ADD entrypoint.sh /opt/entrypoint.sh
+RUN chmod 777 /opt/entrypoint.sh
+ENTRYPOINT ["/opt/entrypoint.sh"]
