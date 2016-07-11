@@ -11,6 +11,8 @@ if [ "$HOSTNAME" = "" ]; then
   HOSTNAME=`hostname -f`
 fi
 
+sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+
 if [ "$MODE" = "" ]; then
 MODE=$1
 fi
