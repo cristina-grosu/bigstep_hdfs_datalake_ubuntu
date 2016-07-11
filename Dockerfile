@@ -29,8 +29,6 @@ RUN echo "Port 2122" >> /etc/ssh/sshd_config
 ADD .bashrc /root/.bashrc
 
 # Install Java 8
-RUN mkdir /opt
-
 ENV JAVA_VERSION_MAJOR=8 \
     JAVA_VERSION_MINOR=92 \
     JAVA_VERSION_BUILD=14 \
