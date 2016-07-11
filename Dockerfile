@@ -105,7 +105,7 @@ RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-
 ENV HADOOP_HOME /opt/hadoop
 
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
-RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+#RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
 
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD slaves /opt/hadoop/etc/hadoop
