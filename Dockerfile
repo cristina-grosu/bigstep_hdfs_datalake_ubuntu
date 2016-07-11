@@ -15,7 +15,7 @@ RUN ssh-keygen -q -N "" -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
 RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
-RUN /usr/sbin/sshd -D
+RUN /usr/sbin/sshd
 RUN lbu ci
 
 ADD ssh_config /root/.ssh/config
