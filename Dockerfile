@@ -1,8 +1,8 @@
 FROM alpine:3.3
 
-RUN apk-install -y openssh-server
-RUN apk-install -y wget
-RUN apk-install -y tar
+RUN apk add --no-cache -y openssh-server
+RUN apk add --no-cache -y wget
+RUN apk add --no-cache -y tar
 
 #RUN apt-get install -y openssh-server
 
