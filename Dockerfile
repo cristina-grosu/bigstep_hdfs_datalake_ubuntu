@@ -4,6 +4,8 @@ RUN apk update
 RUN apk add --no-cache openssh
 RUN apk add --no-cache wget
 RUN apk add --no-cache tar
+RUN apk add --no-cache bash 
+RUN rm -rf /var/cache/apk/*
 
 RUN rm -f /etc/ssh/ssh_host_dsa_key /etc/ssh/ssh_host_rsa_key /root/.ssh/id_rsa
 RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
