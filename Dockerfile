@@ -100,7 +100,7 @@ RUN echo 'export JAVA_HOME="/opt/jdk"' >> ~/.bashrc && \
     
 # Install Hadoop 2.7.1
 RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz && \
-    tar xzvf hadoop-2.7.1.tar.gz && rm ./hadoop-2.7.1.tar.gz &&  mv hadoop-2.7.1/ hadoop
+    tar xzvf hadoop-2.7.1.tar.gz && rm ./hadoop-2.7.1.tar.gz &&  mv hadoop-2.7.1/ /opt/hadoop
 
 ENV HADOOP_HOME /opt/hadoop
 
