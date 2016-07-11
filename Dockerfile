@@ -31,19 +31,18 @@ ADD .bashrc /root/.bashrc
 # Install Java 8
 RUN mkdir /opt
 
-ENV JAVA_VERSION_MAJOR=%JVM_MAJOR% \
-    JAVA_VERSION_MINOR=%JVM_MINOR% \
-    JAVA_VERSION_BUILD=%JVM_BUILD% \
-    JAVA_PACKAGE=%JVM_PACKAGE% \
+ENV JAVA_VERSION_MAJOR=8 \
+    JAVA_VERSION_MINOR=92 \
+    JAVA_VERSION_BUILD=14 \
+    JAVA_PACKAGE=jdk \
     JAVA_HOME=/opt/jdk \
     PATH=${PATH}:/opt/jdk/bin \
-    GLIBC_VERSION=%GLIBC_VERSION% \
+    GLIBC_VERSION=2.23-r3 \
     LANG=C.UTF-8
 
 # do all in one step
 RUN apk upgrade --update && \
     apk add --update curl ca-certificates bash && \
-    apk add --allow-untrusted glibc-2.21-r2.apk \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
     apk add --allow-untrusted /tmp/*.apk && \
     rm -v /tmp/*.apk && \
@@ -51,7 +50,7 @@ RUN apk upgrade --update && \
     echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh && \
     /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib && \
     mkdir /tmp/dcevm && \
-    curl -L -o /tmp/dcevm/%DCEVM_INSTALLER_NAME% "%DCEVM_INSTALLER_URL%" && \
+    curl -L -o /tmp/dcevm/DCEVM-light-8u74-installer.jar "https://github.com/dcevm/dcevm/releases/download/light-jdk8u74%2B1/DCEVM-light-8u74-installer.jar" && \
     mkdir /opt && curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/java.tar.gz \
     http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz && \
     gunzip /tmp/java.tar.gz && \
@@ -59,7 +58,7 @@ RUN apk upgrade --update && \
     apk del curl glibc-i18n && \
     ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jdk && \
     cd /tmp/dcevm && \
-    unzip %DCEVM_INSTALLER_NAME% && \
+    unzip DCEVM-light-8u74-installer.jar && \
     mkdir -p /opt/jdk/jre/lib/amd64/dcevm && \
     cp linux_amd64_compiler2/product/libjvm.so /opt/jdk/jre/lib/amd64/dcevm/libjvm.so && \
     rm -rf /opt/jdk/*src.zip \
