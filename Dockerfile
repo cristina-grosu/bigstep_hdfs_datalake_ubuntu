@@ -11,7 +11,7 @@ RUN rm -f /root/.ssh/id_rsa
 RUN ssh-keygen -q -N "" -t rsa -f /root/.ssh/id_rsa
 RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 
-RUN /usr/bin/sshd -D
+RUN /usr/sbin/sshd -D
 RUN lbu ci
 
 ADD ssh_config /root/.ssh/config
