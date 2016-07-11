@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-HADOOP_HOME="opt/hadoop"
-HADOOP_SBIN_DIR="opt/hadoop/sbin"
-HADOOP_CONF_DIR="opt/hadoop/etc/hadoop"
+HADOOP_HOME="/opt/hadoop"
+HADOOP_SBIN_DIR="/opt/hadoop/sbin"
+HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 
 . "/root/.bashrc"
 
