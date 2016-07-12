@@ -107,7 +107,8 @@ ENV HADOOP_HOME /opt/hadoop
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
 #RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
 
-ADD hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml.template
+#ADD hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml.template
+ADD hdfs-site.xml /opt/hadoop/etc/hadoop/hdfs-site.xml
 ADD slaves /opt/hadoop/etc/hadoop
 # RUN mkdir -p /opt/hadoop/journal
 # RUN mkdir -p /opt/hadoop/journal/data
