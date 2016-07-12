@@ -25,6 +25,7 @@ amed directories, typically on different devices. Directories that do not exist 
         <value>false</value>
     </property> 
     -->
+    <!--
     <property>
         <name>dfs.ha.automatic-failover.enabled</name>
         <value>true</value>
@@ -72,5 +73,5 @@ amed directories, typically on different devices. Directories that do not exist 
    <property>
       <name>dfs.journalnode.edits.dir</name>
       <value>/opt/hadoop/journal/data</value>
-    </property>
+    </property>-->
     </configuration>
