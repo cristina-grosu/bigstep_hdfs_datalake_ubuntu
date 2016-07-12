@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 HADOOP_HOME="/opt/hadoop"
 HADOOP_SBIN_DIR="/opt/hadoop/sbin"
 HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
@@ -23,18 +22,18 @@ fi
 
 JNODES=$(echo $JN_IPS | tr "," ";")
 
-sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/hdfs-site.xml.template \
+sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/hdfs-site.xml \
 | sed "s/NNODE1_IP/$NNODE1_IP/" \
 | sed "s/NNODE2_IP/$NNODE2_IP/" \
 | sed "s/ZKNODES/$ZK_IPS/" \
 | sed "s/JNODES/$JNODES/" \
 > /opt/hadoop/etc/hadoop/hdfs-site.xml
 
-sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
 
 echo CLUSTER_NAME=$CLUSTER_NAME NNODE1_IP=$NNODE1_IP NNODE2_IP=$NNODE2_IP JNODES=$JNODES ZK_IPS=$ZK_IPS
 
-sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
 
 if [ "$MODE" = "" ]; then
 MODE=$1
