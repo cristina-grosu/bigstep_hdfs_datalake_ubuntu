@@ -71,6 +71,6 @@ amed directories, typically on different devices. Directories that do not exist 
     </property>
    <property>
       <name>dfs.journalnode.edits.dir</name>
-      <value>/mnt/hadoop/journal/data</value>
+      <value>/opt/hadoop/journal/data</value>
     </property>
     </configuration>
