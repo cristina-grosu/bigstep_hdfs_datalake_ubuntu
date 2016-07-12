@@ -29,7 +29,7 @@ sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/hdfs-site.xml \
 | sed "s/JNODES/$JNODES/" \
 > /opt/hadoop/etc/hadoop/hdfs-site.xml
 
-sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
 
 echo CLUSTER_NAME=$CLUSTER_NAME NNODE1_IP=$NNODE1_IP NNODE2_IP=$NNODE2_IP JNODES=$JNODES ZK_IPS=$ZK_IPS
 
