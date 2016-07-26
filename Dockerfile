@@ -108,11 +108,9 @@ ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
 RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
 
 ADD mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml.template
-RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
 
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml.template
-RUN sed s/HOSTNAME/$HOSTNAME/ /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml
 
 ADD slaves /opt/hadoop/etc/hadoop
 
