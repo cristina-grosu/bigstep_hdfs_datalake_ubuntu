@@ -120,8 +120,8 @@ ADD slaves /opt/hadoop/etc/hadoop
 # RUN mkdir -p /opt/hadoop/journal/data
 # RUN chmod +x /opt/hadoop/journal/data
 
-# NameNode                Secondary NameNode  DataNode                     JournalNode  NFS Gateway    HttpFS         ZKFC
-EXPOSE 8020 50070 50470   50090 50495         50010 1004 50075 1006 50020  8485 8480    2049 4242 111  14000 14001    8019
+# NameNode                Secondary NameNode  DataNode                     JournalNode  NFS Gateway    HttpFS         ZKFC  YARN
+EXPOSE 8020 50070 50470   50090 50495         50010 1004 50075 1006 50020  8485 8480    2049 4242 111  14000 14001    8019  8088
 
 ADD entrypoint.sh /opt/entrypoint.sh
 RUN chmod 777 /opt/entrypoint.sh
