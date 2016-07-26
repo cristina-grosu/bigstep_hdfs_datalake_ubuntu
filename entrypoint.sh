@@ -3,6 +3,7 @@
 HADOOP_HOME="/opt/hadoop"
 HADOOP_SBIN_DIR="/opt/hadoop/sbin"
 HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
+YARN_CONF_DIR="/opt/hadoop/etc/hadoop"
 
 . "/root/.bashrc"
 
@@ -47,7 +48,7 @@ if [ "$MODE" == "headnode" ]; then
 #	$HADOOP_PREFIX/sbin/hadoop-daemon.sh start zkfc
 	#${HADOOP_SBIN_DIR}/hadoop-daemons.sh --config "$HADOOP_CONF_DIR" --hostnames "spark.marathon.mesos" --script "/opt/hadoop/bin/hdfs" start namenode
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --hostnames "hdfsmaster.marathon.mesos" --script "/opt/hadoop/bin/hdfs" start namenode
-	yarn resourcemanager
+	yarn --config $YARN_CONF_DIR resourcemanager
 	
 #elif [ "$MODE" == "standby" ]; then
 #	$HADOOP_PREFIX/bin/hadoop namenode -bootstrapStandby
@@ -55,12 +56,12 @@ if [ "$MODE" == "headnode" ]; then
 elif [ "$MODE" == "datanode" ]; then
 	
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --script "/opt/hadoop/bin/hdfs" start datanode
-	yarn nodemanager
+	yarn --config $YARN_CONF_DIR nodemanager
 else
 	/opt/hadoop/bin/hdfs namenode -format
 	#${HADOOP_SBIN_DIR}/hadoop-daemons.sh --config "$HADOOP_CONF_DIR" --hostnames "spark.marathon.mesos" --script "/opt/hadoop/bin/hdfs" start namenode
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --hostnames "hdfsmaster.marathon.mesos" --script "/opt/hadoop/bin/hdfs" start namenode
 	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --script "/opt/hadoop/bin/hdfs" start datanode
 	#hadoop --config "$HADOOP_CONF_DIR" datanode
-	yarn resourcemanager
+	yarn --config $YARN_CONF_DIR resourcemanager
 fi
