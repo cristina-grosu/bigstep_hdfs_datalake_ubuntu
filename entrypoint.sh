@@ -10,6 +10,7 @@ if [ "$HOSTNAME_MASTER" != "" ]; then
 	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
 	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
 	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml	
+	sed "s/HOSTNAME_MASTER/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/slaves
 elif [ "$HOSTNAME" = "" ]; then
   HOSTNAME=`hostname -f`
   sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
@@ -17,6 +18,9 @@ elif [ "$HOSTNAME" = "" ]; then
   sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml
 fi
 
+if [ "$HOSTNAME_SLAVE" != "" ]; then
+	sed "s/HOSTNAME_SLAVE/$HOSTNAME_SLAVE/" /opt/hadoop/etc/hadoop/slaves
+fi
 #if [ -z $CLUSTER_NAME ]; then
 #  CLUSTER_NAME="cluster"
 #  export CLUSTER_NAME
