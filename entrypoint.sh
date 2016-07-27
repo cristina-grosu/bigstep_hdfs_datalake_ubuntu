@@ -6,9 +6,15 @@ HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 YARN_CONF_DIR="/opt/hadoop/etc/hadoop"
 
 . "/root/.bashrc"
-
-if [ "$HOSTNAME" = "" ]; then
+if [ "$HOSTNAME_MASTER" != "" ]; then
+	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
+	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml	
+elif [ "$HOSTNAME" = "" ]; then
   HOSTNAME=`hostname -f`
+  sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+  sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
+  sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml
 fi
 
 #if [ -z $CLUSTER_NAME ]; then
@@ -30,16 +36,14 @@ fi
 #| sed "s/JNODES/$JNODES/" \
 #> /opt/hadoop/etc/hadoop/hdfs-site.xml
 
-#sed "s/CLUSTER_NAME/$CLUSTER_NAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
-
-sed "s/HOSTNAME_MASTER/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
-sed "s/HOSTNAME_MASTER/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
-sed "s/HOSTNAME_MASTER/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml
+####sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+####sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/mapred-site.xml.template > /opt/hadoop/etc/hadoop/mapred-site.xml
+####sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/yarn-site.xml.template > /opt/hadoop/etc/hadoop/yarn-site.xml
 
 #echo CLUSTER_NAME=$CLUSTER_NAME NNODE1_IP=$NNODE1_IP NNODE2_IP=$NNODE2_IP JNODES=$JNODES ZK_IPS=$ZK_IPS
 
 if [ "$MODE" = "" ]; then
-MODE=$1
+	MODE=$1
 fi
 
 if [ "$MODE" == "headnode" ]; then 
