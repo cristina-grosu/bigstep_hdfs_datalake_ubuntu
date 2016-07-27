@@ -105,17 +105,10 @@ RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-
 ENV HADOOP_HOME /opt/hadoop
 
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
-
 ADD mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml.template
-
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml.template
-
 ADD slaves /opt/hadoop/etc/hadoop
-
-# RUN mkdir -p /opt/hadoop/journal
-# RUN mkdir -p /opt/hadoop/journal/data
-# RUN chmod +x /opt/hadoop/journal/data
 
 # NameNode                Secondary NameNode  DataNode                     JournalNode  NFS Gateway    HttpFS         ZKFC  YARN
 EXPOSE 8020 50070 50470   50090 50495         50010 1004 50075 1006 50020  8485 8480    2049 4242 111  14000 14001    8019  8088
