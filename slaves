@@ -1,2 +1,2 @@
-hdfsmaster.marathon.mesos
-hdfsslave.marathon.mesos
+HOSTNAME_MASTER
+HOSTNAME_SLAVE
