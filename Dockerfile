@@ -111,7 +111,7 @@ ADD mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml.template
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml.template
 
-ADD slaves.template /opt/hadoop/etc/hadoop
+ADD slaves /opt/hadoop/etc/hadoop
 
 # RUN mkdir -p /opt/hadoop/journal
 # RUN mkdir -p /opt/hadoop/journal/data
