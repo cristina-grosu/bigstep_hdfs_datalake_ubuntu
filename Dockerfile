@@ -107,7 +107,7 @@ ENV HADOOP_HOME /opt/hadoop
 RUN mkdir -p /dfs && mkdir -p /dfs/nn && mkdir -p /dfs/dn
 
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
-#ADD mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml.template
+ADD mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml.template
 ADD hdfs-site.xml /opt/hadoop/etc/hadoop
 ADD yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml.template
 #ADD slaves /opt/hadoop/etc/hadoop
