@@ -33,7 +33,7 @@ if [ "$MODE" == "headnode" ]; then
 	#yarn --config $YARN_CONF_DIR resourcemanager
 
 elif [ "$MODE" == "datanode" ]; then
-	${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --script "/opt/hadoop/bin/hdfs" start datanode
+	#${HADOOP_SBIN_DIR}/hadoop-daemon.sh --config "$HADOOP_CONF_DIR" --script "/opt/hadoop/bin/hdfs" start datanode
 	hadoop datanode
 	#yarn --config $YARN_CONF_DIR nodemanager
 else
