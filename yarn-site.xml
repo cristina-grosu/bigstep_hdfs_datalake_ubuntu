@@ -23,6 +23,14 @@
   <name>yarn.resourcemanager.admin.address</name>
   <value>HOSTNAME:8033</value>
 </property>
+
+ <property>
+
+     <name>yarn.log.server.url</name>
+
+     <value>http://HOSTNAME:19888/jobhistory/logs</value>
+
+ </property>
 <property>
   <name>yarn.nodemanager.log-dirs</name>
   <value>/tmp</value>
