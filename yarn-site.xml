@@ -39,4 +39,20 @@
       <name>yarn.nodemanager.remote-app-log-dir-suffix</name>
       <value>logs</value>
   </property>
+  <property>
+<name>yarn.scheduler.minimum-allocation-mb</name>
+<value>1024</value>
+</property>
+<property>                            
+<name>yarn.scheduler.maximum-allocation-mb</name>
+<value>8000</value>
+</property>
+<property>                            
+<name>yarn.scheduler.minimum-allocation-vcores</name>
+<value>1</value>
+</property>
+<property>                            
+<name>yarn.scheduler.maximum-allocation-vcores</name>
+<value>8</value>
+</property>
 </configuration>
