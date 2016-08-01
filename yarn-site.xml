@@ -40,6 +40,10 @@
       <value>logs</value>
   </property>
   <property>
+   <name>yarn.nodemanager.resource.memory-mb</name>
+   <value>4000</value>
+  </property>
+  <property>
 <name>yarn.scheduler.minimum-allocation-mb</name>
 <value>1024</value>
 </property>
