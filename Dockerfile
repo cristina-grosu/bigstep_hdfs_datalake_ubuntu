@@ -113,7 +113,7 @@ ADD yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml.template
 #ADD slaves /opt/hadoop/etc/hadoop
 
 # NameNode                      Secondary NameNode  DataNode                     JournalNode  NFS Gateway    HttpFS         ZKFC  YARN    Spark
-EXPOSE 8020 8031 8032 8033 8042 50070 50470   50090 50495         50010 1004 50075 1006 50020  8485 8480    2049 4242 111  14000 14001    8019  8088    7077
+EXPOSE 8020 8031 8032 8033 8042 50070 50470   50090 50495    19888     50010 1004 50075 1006 50020  8485 8480    2049 4242 111  14000 14001    8019  8088    7077
 
 ADD entrypoint.sh /opt/entrypoint.sh
 RUN chmod 777 /opt/entrypoint.sh
