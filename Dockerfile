@@ -1,8 +1,10 @@
 FROM mcristinagrosu/bigstep_java
 
-RUN apk add --no-cache wget tar
+ADD .bashrc ~/.bashrc
 
 RUN source ~/.bashrc
+RUN apk add --no-cache wget tar
+
 # Install Hadoop 2.7.1
 RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz && \
     tar xzvf hadoop-2.7.1.tar.gz && rm ./hadoop-2.7.1.tar.gz &&  mv hadoop-2.7.1/ /opt/hadoop
