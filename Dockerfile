@@ -7,8 +7,7 @@ RUN source ~/.bashrc
 RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz && \
     tar xzvf hadoop-2.7.1.tar.gz && rm ./hadoop-2.7.1.tar.gz &&  mv hadoop-2.7.1/ /opt/hadoop
 
-RUN mkdir -p /dfs && mkdir -p /dfs/nn && mkdir -p /dfs/dn && cp $CONTAINER_DIR/datalake-1.1-SNAPSHOT.jar $HADOOP_CLASSPATH && \ 
-    cp $CONTAINER_DIR/datalake-1.1-SNAPSHOT.jar $JAVA_CLASSPATH
+RUN mkdir -p /dfs && mkdir -p /dfs/nn && mkdir -p /dfs/dn 
 
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
 ADD krb5.conf /etc/krb5.conf
