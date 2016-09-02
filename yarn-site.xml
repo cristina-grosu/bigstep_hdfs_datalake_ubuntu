@@ -1,4 +1,4 @@
-<configuration>
+<!--<configuration>
 <property>
  <name>yarn.nodemanager.aux-services</name>
  <value>mapreduce_shuffle</value>
@@ -24,3 +24,4 @@
   <value>HOSTNAME:8033</value>
 </property>
 </configuration>
+-->
