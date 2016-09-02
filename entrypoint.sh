@@ -23,6 +23,7 @@ fi
 if ["$CONTAINER_DIR" != ""]; then
 	cp $CONTAINER_DIR/datalake-1.1-SNAPSHOT.jar $HADOOP_CLASSPATH 
     	cp $CONTAINER_DIR/datalake-1.1-SNAPSHOT.jar $JAVA_CLASSPATH
+    	cp $CONTAINER_DIR/.k5keytab $KEYTAB_PATH
 fi
 
 if [ "$MODE" = "" ]; then
