@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ "$HOSTNAME_MASTER" != "" ]; then
-	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
-elif [ "$HOSTNAME" = "" ]; then
-  	HOSTNAME=`hostname -f`
-  	sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
+if [ "$HOSTNAME" != "" ]; then
+	sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
+else
+  	HOSTNAME=$(hostname -f)
+	sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if [ "$DATALAKE_USER" != "" ]; then
@@ -32,8 +32,10 @@ fi
 if [ "$MODE" == "headnode" ]; then 
 	/opt/hadoop/bin/hdfs namenode -format
 	/opt/hadoop/bin/hadoop namenode
+
 elif [ "$MODE" == "datanode" ]; then
 	/opt/hadoop/bin/hadoop datanode
+
 else
 	/opt/hadoop/bin/hdfs namenode -format
 	/opt/hadoop/bin/hadoop namenode
