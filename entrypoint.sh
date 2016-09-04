@@ -1,23 +1,22 @@
 #!/bin/bash
 
-. "/root/.bashrc"
 if [ "$HOSTNAME_MASTER" != "" ]; then
-	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/HOSTNAME/$HOSTNAME_MASTER/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
 elif [ "$HOSTNAME" = "" ]; then
   	HOSTNAME=`hostname -f`
-  	sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template > /opt/hadoop/etc/hadoop/core-site.xml
+  	sed "s/HOSTNAME/$HOSTNAME/" /opt/hadoop/etc/hadoop/core-site.xml.template >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if ["$DATALAKE_USER" != ""]; then
-	sed "s/DATALAKE_USER/$DATALAKE_USER/" /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/DATALAKE_USER/$DATALAKE_USER/" /opt/hadoop/etc/hadoop/core-site.xml >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if ["$KEYTAB_PATH" != ""]; then
-	sed "s/KEYTAB_PATH/$KEYTAB_PATH/" /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/KEYTAB_PATH/$KEYTAB_PATH/" /opt/hadoop/etc/hadoop/core-site.xml >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if ["$USER_HOME_DIR" != ""]; then
-	sed "s/USER_HOME_DIR/$USER_HOME_DIR/" /opt/hadoop/etc/hadoop/core-site.xml > /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/USER_HOME_DIR/$USER_HOME_DIR/" /opt/hadoop/etc/hadoop/core-site.xml >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if ["$CONTAINER_DIR" != ""]; then
@@ -32,10 +31,10 @@ fi
 
 if [ "$MODE" == "headnode" ]; then 
 	/opt/hadoop/bin/hdfs namenode -format
-	hadoop namenode
+	/opt/hadoop/bin/hadoop namenode
 elif [ "$MODE" == "datanode" ]; then
-	hadoop datanode
+	/opt/hadoop/bin/hadoop datanode
 else
 	/opt/hadoop/bin/hdfs namenode -format
-	hadoop namenode
+	/opt/hadoop/bin/hadoop namenode
 fi
