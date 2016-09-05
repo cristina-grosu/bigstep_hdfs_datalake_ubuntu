@@ -1,8 +1,5 @@
 FROM mcristinagrosu/bigstep_java
 
-ADD .bashrc ~/.bashrc
-
-RUN source ~/.bashrc
 RUN apk add --no-cache wget tar
 
 # Install Hadoop 2.7.1
