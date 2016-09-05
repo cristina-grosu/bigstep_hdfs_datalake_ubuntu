@@ -8,8 +8,8 @@ export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
 export HADOOP_PREFIX="$HADOOP_HOME"
 export HADOOP_SBIN_DIR="$HADOOP_HOME/sbin"
 export HADOOP_SBIN_DIR="$HADOOP_HOME/bin"
-export HADOOP_CLASSPATH="$HADOOP_CLASSPATH:$HADOOP_HOME/share/hadoop/common/"
-export JAVA_CLASSPATH="$JAVA_CLASSPATH:$JAVA_HOME/jre/lib/"
+export HADOOP_CLASSPATH="${HADOOP_HOME/share/hadoop/common/"
+export JAVA_CLASSPATH="$JAVA_HOME/jre/lib/"
 export JAVA_OPTS="-Dsun.security.krb5.debug=true"
 
 rm -rf /opt/hadoop/etc/hadoop/core-site.xml
