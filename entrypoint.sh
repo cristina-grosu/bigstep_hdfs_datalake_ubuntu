@@ -12,7 +12,7 @@ if [ "$DATALAKE_USER" != "" ]; then
 fi
 
 if [ "$KEYTAB_PATH" != "" ]; then
-	sed "s/KEYTAB_PATH/$KEYTAB_PATH/" /opt/hadoop/etc/hadoop/core-site.xml >> /opt/hadoop/etc/hadoop/core-site.xml
+	sed "s/KEYTAB_PATH/${KEYTAB_PATH}/" /opt/hadoop/etc/hadoop/core-site.xml >> /opt/hadoop/etc/hadoop/core-site.xml
 fi
 
 if [ "$USER_HOME_DIR" != "" ]; then
