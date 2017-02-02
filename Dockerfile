@@ -9,7 +9,7 @@ RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-
 RUN mkdir -p /dfs && mkdir -p /dfs/nn && mkdir -p /dfs/dn 
 
 ADD core-site.xml /opt/hadoop/etc/hadoop/core-site.xml.template
-ADD krb5.conf /etc/krb5.conf
+#ADD krb5.conf /etc/krb5.conf
 ADD entrypoint.sh /opt/entrypoint.sh
 
 RUN chmod 777 /opt/entrypoint.sh
