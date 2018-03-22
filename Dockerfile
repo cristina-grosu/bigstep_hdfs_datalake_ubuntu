@@ -2,9 +2,9 @@ FROM mcristinagrosu/bigstepinc_java_8_ubuntu
 
 RUN apt-get install wget tar
 
-# Install Hadoop 2.7.1
-RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.1/hadoop-2.7.1.tar.gz && \
-    tar xzvf hadoop-2.7.1.tar.gz && rm ./hadoop-2.7.1.tar.gz &&  mv hadoop-2.7.1/ /opt/hadoop
+# Install Hadoop 2.7.5
+RUN cd /opt && wget https://www.apache.org/dist/hadoop/core/hadoop-2.7.5/hadoop-2.7.5.tar.gz && \
+    tar xzvf hadoop-2.7.5.tar.gz && rm ./hadoop-2.7.5.tar.gz &&  mv hadoop-2.7.5/ /opt/hadoop
 
 RUN mkdir -p /dfs && mkdir -p /dfs/nn && mkdir -p /dfs/dn 
 
